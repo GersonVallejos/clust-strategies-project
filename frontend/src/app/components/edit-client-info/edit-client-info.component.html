@@ -1,0 +1,57 @@
+
+<div class="card card-primary">
+    <div class="card-header">
+      
+      <h3 class="card-title" class="currentDataset">Edita informacion del cliente </h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form [formGroup] = "editForm">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="inputName">Nombre del Cliente</label>
+          <input class="form-control" id="inputName" placeholder="Ingrese nombre del dataset" formControlName="Gender">
+        </div>
+        <div class="form-group">
+          <label for="inputFecha">Genero del Cliente</label>
+          <input class="form-control" id="inputFecha" placeholder="Ingrese fecha de creación" formControlName="Ever_Married">
+        </div>
+        <div class="form-group">
+            <label for="inputName">Ingresos del Cliente</label>
+            <input class="form-control" id="inputName" placeholder="Ingrese nombre del dataset" formControlName="Age">
+          </div>
+          <div class="form-group">
+            <label for="inputFecha">Gastos del Cliente</label>
+            <input class="form-control" id="inputFecha" placeholder="Ingrese fecha de creación" formControlName="Graduated">
+          </div>
+          <div class="form-group">
+            <label for="inputName">Nombre del Cliente</label>
+            <input class="form-control" id="inputName" placeholder="Ingrese nombre del dataset" formControlName="Profession">
+          </div>
+          <div class="form-group">
+            <label for="inputFecha">Genero del Cliente</label>
+            <input class="form-control" id="inputFecha" placeholder="Ingrese fecha de creación" formControlName="Work_Experience">
+          </div>
+          <div class="form-group">
+              <label for="inputName">Ingresos del Cliente</label>
+              <input class="form-control" id="inputName" placeholder="Ingrese nombre del dataset" formControlName="Spending_Score">
+            </div>
+            <div class="form-group">
+              <label for="inputFecha">Gastos del Cliente</label>
+              <input class="form-control" id="inputFecha" placeholder="Ingrese fecha de creación" formControlName="Family_Size">
+            </div>
+            <div class="form-group">
+              <label for="inputFecha">Gastos del Cliente</label>
+              <input class="form-control" id="inputFecha" placeholder="Ingrese fecha de creación" formControlName="Var_1">
+            </div>
+        
+        
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button (click)="editClientInfo()" type="submit" class="btn btn-primary">Aceptar</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.card -->
