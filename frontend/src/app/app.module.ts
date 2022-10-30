@@ -36,7 +36,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // Servicios
 
 import { ApiService } from './servicios/api/api.service';
-import { ShowDataComponent } from './components/show-data/show-data.component'
+import { ShowDataComponent } from './components/show-data/show-data.component';
+import { PagesComponent } from './components/pages/pages.component'
  
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ShowDataComponent } from './components/show-data/show-data.component'
     ClientInfoComponent,
     EditClientInfoComponent,
     AddClientInfoComponent,
-    ShowDataComponent
+    ShowDataComponent,
+    PagesComponent
     
   ],
   imports: [

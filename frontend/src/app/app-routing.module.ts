@@ -19,23 +19,31 @@ import {ClientInfoComponent} from './components/client-info/client-info.componen
 import {EditClientInfoComponent} from './components/edit-client-info/edit-client-info.component';
 import { AddClientInfoComponent } from './components/add-client-info/add-client-info.component';
 import {ShowDataComponent} from './components/show-data/show-data.component';
+import {PagesComponent} from './components/pages/pages.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/Inicio',pathMatch: 'full'},
-  {path: 'Inicio', component: InicioComponent},
-  {path: 'Perfil', component: MiPerfilComponent},
-  {path: 'GestionDeDatos',component: GestionDeDatosComponent},
-  {path: 'Analisis', component: HerramientaDeAnalisisComponent},
-  {path: 'Ayuda', component: AyudaComponent},
+  {path: '', redirectTo: '/Login',pathMatch: 'full'},
   {path: 'Login',component: LoginComponent},
   {path: 'Register',component: RegisterComponent},
   {path: 'ForgotPassword',component: ForgotPasswordComponent},
-  {path: 'AddDataset',component: AddDatasetComponent},
-  {path: 'EditDataset/:id',component:EditDatasetComponent},
-  {path: 'ClientInfo/:id',component:ClientInfoComponent},
-  {path: 'EditClientInfo/:id',component: EditClientInfoComponent},
-  {path: 'AddClientInfo/:id',component: AddClientInfoComponent},
-  {path: 'ShowData/:id', component: ShowDataComponent}
+
+  {path: 'Dashboard',component: PagesComponent,
+  children:[
+    {path: 'Inicio', component: InicioComponent},
+    {path: 'Perfil', component: MiPerfilComponent},
+    {path: 'GestionDeDatos',component: GestionDeDatosComponent},
+    {path: 'Analisis', component: HerramientaDeAnalisisComponent},
+    {path: 'Ayuda', component: AyudaComponent},
+    
+    {path: 'AddDataset',component: AddDatasetComponent},
+    {path: 'EditDataset/:id',component:EditDatasetComponent},
+    {path: 'ClientInfo/:id',component:ClientInfoComponent},
+    {path: 'EditClientInfo/:id',component: EditClientInfoComponent},
+    {path: 'AddClientInfo/:id',component: AddClientInfoComponent},
+    {path: 'ShowData/:id', component: ShowDataComponent}
+  ],}
+
+  
 ];
 
 @NgModule({

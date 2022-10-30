@@ -17,7 +17,7 @@
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">1. Seleccionar Data</h3>
-        <a (click)="goToPage2('AddClientInfo',dataSetId)" class="btn btn-app">
+        <a (click)="goToPage2('Dashboard/AddClientInfo',dataSetId)" class="btn btn-app">
           <i class="fas fa-plus"></i> Add
         </a>
 
@@ -56,7 +56,7 @@
               <td>{{data.Family_Size}}</td>
               <td>{{data.Var_1}}</td>
               <td>
-                <a (click)="goToPage2('EditClientInfo',data.id)" class="btn btn-app">
+                <a (click)="goToPage2('Dashboard/EditClientInfo',data.id)" class="btn btn-app">
                   Edit
                 </a>
               </td>

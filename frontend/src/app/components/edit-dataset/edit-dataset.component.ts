@@ -60,7 +60,7 @@ export class EditDatasetComponent implements OnInit {
 
     this.datasetService.editDataset(this.dataset.id,this.dataset).subscribe();
     
-    this.goToPage('Analisis');
+    this.goToPage('Dashboard/GestionDeDatos');
   }
 
 }

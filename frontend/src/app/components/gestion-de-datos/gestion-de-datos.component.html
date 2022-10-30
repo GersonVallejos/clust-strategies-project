@@ -18,7 +18,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Tus Datos</h3>
-          <a (click)="goToPage('AddDataset')" class="btn btn-app">
+          <a (click)="goToPage('Dashboard/AddDataset')" class="btn btn-app">
             <i class="fas fa-plus"></i> Add
           </a>
   
@@ -45,12 +45,12 @@
                 <td>{{data.file_name}}</td>
                 <td>{{data.created_timestamp}}</td>
                 <td>
-                  <a (click)="goToPage2('ClientInfo',data.id)" class="btn btn-app">
+                  <a (click)="goToPage2('Dashboard/ClientInfo',data.id)" class="btn btn-app">
                     Details
                   </a>
                 </td>
                 <td>
-                  <a (click)="goToPage2('EditDataset',data.id)" class="btn btn-app">
+                  <a (click)="goToPage2('Dashboard/EditDataset',data.id)" class="btn btn-app">
                     Edit
                   </a>
                 </td>

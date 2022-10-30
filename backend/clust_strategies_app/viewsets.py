@@ -92,6 +92,7 @@ class ClientInfoViewset(viewsets.ModelViewSet):
 
     HERE = Path(__file__).parent
 
+    #Import Kmeans Model
     predictModel = pickle.load(open(HERE / 'model.pkl','rb'))
     def get_encoded_dict(_,df,lst):
 
