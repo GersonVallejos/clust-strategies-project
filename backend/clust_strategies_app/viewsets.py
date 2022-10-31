@@ -406,3 +406,8 @@ class ClientInfoViewset(viewsets.ModelViewSet):
         #print(1)
 
         return Response("Data importada correctamente")
+
+class CompanyViewset(viewsets.ModelViewSet):
+    queryset = models.Company.objects.all()
+    serializer_class = serializers.CompanySerializer
+    
