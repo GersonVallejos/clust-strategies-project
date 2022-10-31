@@ -49,7 +49,9 @@ export class AddClientInfoComponent implements OnInit {
 
   goToPage(pageName:string):void{
     this.add();
-    this.router.navigate([`${pageName}`]);
+    this.router.navigate([`${pageName}`]).then(() => {
+      window.location.reload();
+    });
   }
 
   add():void{

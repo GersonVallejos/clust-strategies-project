@@ -45,7 +45,9 @@ export class AddDatasetComponent implements OnInit {
   goToPage(pageName:string):void{
     this.auxFunction();
     //this.add()
-    this.router.navigate([`${pageName}`]);
+    this.router.navigate([`${pageName}`]).then(() => {
+      window.location.reload();
+    });
   }
 
   fd = new FormData();

@@ -20,6 +20,7 @@ export class GestionDeDatosComponent implements OnInit {
 
   deleteFromArray(id:number):void{
     this.datasetService.deleteDataset(id).subscribe();
+    window.location.reload();
   }
 
   
@@ -53,6 +54,7 @@ export class GestionDeDatosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     let c_id:number = JSON.parse(localStorage.getItem('current'));
     console.log(c_id);
 

@@ -38,6 +38,7 @@ export class ClientInfoComponent implements OnInit {
   }
   deleteFromArray(id:number):void{
     this.clientInfoService.deleteClientInfo(id).subscribe();
+    window.location.reload();
   }
 
 }

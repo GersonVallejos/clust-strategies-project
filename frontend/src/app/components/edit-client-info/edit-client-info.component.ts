@@ -55,6 +55,14 @@ export class EditClientInfoComponent implements OnInit {
     .subscribe(data=> this.clientInfo = data);
   }
 
+  goToPage(pageName:string,id:number):void{
+    this.router.navigate([`${pageName}`,id])
+    .then(() => {
+      window.location.reload();
+    });
+    //console.log("a");
+  }
+
   editClientInfo(): void{
     const id = Number(this.route.snapshot.paramMap.get('id'));
     let c_id:number = JSON.parse(localStorage.getItem('current'));
@@ -74,6 +82,7 @@ export class EditClientInfoComponent implements OnInit {
     this.clientInforService.editClientInfo(id,this.clientInfo).subscribe((data: any) =>{
       console.log(data);
     })
+    this.goToPage('Dashboard/ClientInfo/',c_id);
   }
 }
 

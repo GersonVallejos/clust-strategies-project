@@ -39,7 +39,10 @@ export class EditDatasetComponent implements OnInit {
   }
 
   goToPage(pageName:string):void{
-    this.router.navigate([`${pageName}`]);
+    this.router.navigate([`${pageName}`])
+    .then(() => {
+      window.location.reload();
+    });
     //console.log("a");
   }
 
