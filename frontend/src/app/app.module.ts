@@ -22,6 +22,9 @@ import { EditDatasetComponent } from './components/edit-dataset/edit-dataset.com
 import { ClientInfoComponent } from './components/client-info/client-info.component';
 import { EditClientInfoComponent } from './components/edit-client-info/edit-client-info.component';
 import { AddClientInfoComponent } from './components/add-client-info/add-client-info.component';
+import { ShowDataComponent } from './components/show-data/show-data.component';
+import { PagesComponent } from './components/pages/pages.component';
+import { EditPerfilComponent } from './components/edit-perfil/edit-perfil/edit-perfil.component'
 
 // old components
 //import {LoginComponent} from './vistas/login/login.component'
@@ -36,8 +39,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // Servicios
 
 import { ApiService } from './servicios/api/api.service';
-import { ShowDataComponent } from './components/show-data/show-data.component';
-import { PagesComponent } from './components/pages/pages.component'
+
  
 
 @NgModule({
@@ -60,7 +62,8 @@ import { PagesComponent } from './components/pages/pages.component'
     EditClientInfoComponent,
     AddClientInfoComponent,
     ShowDataComponent,
-    PagesComponent
+    PagesComponent,
+    EditPerfilComponent
     
   ],
   imports: [

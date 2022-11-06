@@ -1,0 +1,33 @@
+<div class="card card-primary">
+    <div class="card-header">
+      
+      <h3 class="card-title" class="currentDataset">Edita dataset </h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form [formGroup] = "editForm">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="inputName">Nombre del Usuario</label>
+          <input class="form-control" id="inputName" placeholder="Ingrese nombre de usuario" formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="inputFecha">Nombre de la Compañia</label>
+          <input class="form-control" id="inputFecha" placeholder="Ingrese nombre de compañia" formControlName="company">
+        </div>
+
+        <div class="form-group">
+            <label for="inputFecha">Email</label>
+            <input class="form-control" id="inputFecha" placeholder="Ingrese email" formControlName="email">
+          </div>
+        
+        
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button (click)="editClient()" type="submit" class="btn btn-primary">Aceptar</button>
+      </div>
+    </form>
+  </div>
+  <!-- /.card -->

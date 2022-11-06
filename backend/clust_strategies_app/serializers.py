@@ -22,4 +22,4 @@ class ClusterResultsSeralizer(serializers.ModelSerializer):
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
-        fields = 'username', 'email', 'admin_name'
+        fields = 'id','username', 'email', 'admin_name'

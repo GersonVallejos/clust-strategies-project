@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 // old components
 //import {LoginComponent} from './vistas/login/login.component'
@@ -20,6 +20,7 @@ import {EditClientInfoComponent} from './components/edit-client-info/edit-client
 import { AddClientInfoComponent } from './components/add-client-info/add-client-info.component';
 import {ShowDataComponent} from './components/show-data/show-data.component';
 import {PagesComponent} from './components/pages/pages.component';
+import{EditPerfilComponent} from './components/edit-perfil/edit-perfil/edit-perfil.component'
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login',pathMatch: 'full'},
@@ -40,7 +41,8 @@ const routes: Routes = [
     {path: 'ClientInfo/:id',component:ClientInfoComponent},
     {path: 'EditClientInfo/:id',component: EditClientInfoComponent},
     {path: 'AddClientInfo/:id',component: AddClientInfoComponent},
-    {path: 'ShowData/:id', component: ShowDataComponent}
+    {path: 'ShowData/:id', component: ShowDataComponent},
+    {path: 'EditPerfil/:id', component:EditPerfilComponent}
   ],}
 
   

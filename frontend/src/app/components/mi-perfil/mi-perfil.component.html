@@ -11,4 +11,24 @@
     </div><!-- /.container-fluid -->
   </section>
 
+<!-- Profile Image -->
+<div class="card card-primary card-outline">
+  <div class="card-body box-profile">
+    
 
+    <h3 class="profile-username text-center">{{user.admin_name}}</h3>
+
+    <p class="text-muted text-center">{{user.username}}</p>
+    
+    <ul class="list-group list-group-unbordered mb-3">
+      <li class="list-group-item">
+        <b>Email</b> <a class="float-right">{{user.email}}</a>
+      </li>
+      
+    </ul>
+
+    <a (click)="goToPage2('Dashboard/EditPerfil',user.id)" class="btn btn-primary btn-block"><b>editar</b></a>
+  </div>
+  <!-- /.card-body -->
+</div>
+<!-- /.card -->
