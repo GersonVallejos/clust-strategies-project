@@ -94,6 +94,7 @@ class ClientInfoViewset(viewsets.ModelViewSet):
 
     #Import Kmeans Model
     predictModel = pickle.load(open(HERE / 'model.pkl','rb'))
+    dtModel = pickle.load(open(HERE / 'modelDT.pkl','rb'))
     def get_encoded_dict(_,df,lst):
 
         #print(df)
@@ -122,15 +123,55 @@ class ClientInfoViewset(viewsets.ModelViewSet):
             encoded_dict[col] = each_dict
         return encoded_dict
 
+    @action(detail=False,methods=['GET'])
+    def use_dt(self,request):
+        #print(request.query_params)
+        
+        d_id = request.query_params["d_id"]
+        
+        clust = request.query_params["cluster"]
 
+        print(d_id,clust)
+        
+#
+        cluster_result = models.Cluster_Results.objects.filter(dataset_id = d_id).filter(cluster = clust)
+        #print(cluster_result)
+        serializer = serializers.ClusterResultsSeralizer(cluster_result, many = True)
+        #print(serializer)
+        tmp_clust = pd.DataFrame(serializer.data)
+        tmp_clust = tmp_clust.loc[[0]]
+        print(tmp_clust)
+
+        dataset = models.Client_Info.objects.filter(dataset_id=d_id)
+        serializer2 = serializers.ClientInfoSerialize(dataset,many=True)
+        aux=pd.DataFrame(serializer2.data)
+        print(aux.head())
+
+        combined = tmp_clust.append(aux)
+        combined.drop(['id','company_id','dataset_id','aux_id'],axis=1,inplace=True)
+        
+
+        encoded_dict = self.get_encoded_dict(combined,["Gender","Ever_Married","Graduated","Profession","Spending_Score","Var_1"])
+        #print(encoded_dict)
+
+        combined = combined.replace(encoded_dict)
+        combined=combined.iloc[[0]]
+        print(combined)
+
+        answer = self.dtModel.predict(combined)
+        answer = int(answer)
+        print(answer)
+
+        
+        #df = df.loc[[0]]
+        #print(df)
+
+        return Response(answer)
+    
+    
     @action(detail=False,methods=['GET'])
     def use_model(self,request):
-        #print(request.data)
-        #lista para IDs
-        #listID = list()
-        #for  key in request.query_params:
-        #    listID.append(request.query_params[key])
-        #print(listID)
+
 
         df=pd.DataFrame()
         d_id = request.query_params["d_id"]
@@ -139,17 +180,7 @@ class ClientInfoViewset(viewsets.ModelViewSet):
         aux=pd.DataFrame(serializer.data)
         df = df.append(aux)
         df = df.dropna()
-        #df = df.drop('abcd',axis = 0)
-        #df = df.drop('')
-        #for elem in listID:
-        #    client_info = models.Client_Info.objects.filter(dataset_id = elem)
-        #    #client_info = pd.DataFrame(list(models.Client_Info.objects.filter(dataset_id = elem)))
-        #    #print(client_info)
-        #    serializer = serializers.ClientInfoSerialize(client_info, many = True)
-        #    aux=pd.DataFrame(serializer.data)
-        #    df = df.append(aux)
-        #    #print(aux)
-        #    #print()
+      
         print(df)
         #return Response(":c")
         aux = df.copy()
@@ -157,22 +188,6 @@ class ClientInfoViewset(viewsets.ModelViewSet):
         print('-------------------------------------------------')
         df.drop(['id','company_id','dataset_id'],axis=1,inplace=True)
         df.rename(columns={'aux_id':'ID'},inplace=True)
-        #df=df.rename({'Female':0,'Male':1},inplace=True)
-        #df=df.rename({'No':0,'Yes':1},inplace=True)
-        ##from colab
-        #print(type(df))
-        #encoded_dict = 
-        #result = df.apply(self.get_encoded_dict(df.,['Gender','Ever_Married','Graduated','Profession','Spending_Score','Var_1','Segmentation']))
-        #print(result)
-        #self.get_encoded_dict(df)#,['Gender','Ever_Married','Graduated','Profession','Spending_Score','Var_1','Segmentation'])
-        #print(encoded_dict)
-        #scaler = MinMaxScaler()
-        #columns_to_normalize = ['Age','Profession','Work_Experience','Spending_Score','Family_Size','Var_1']
-        #df[columns_to_normalize]=scaler.fit_transform(df[columns_to_normalize])
-        ###end colab
-        #print(df)
-        #answer = self.predictModel.predict(df)
-        #print(answer)
 
 
         #========================
@@ -207,11 +222,7 @@ class ClientInfoViewset(viewsets.ModelViewSet):
         aux['k_means_label'] = answer
 
 
-        #data=data.reset_index()
-        #df_kmeans = pd.DataFrame(answer)
-        #df_kmeans.columns = ["k-means_label"]
 
-        #df=pd.concat([df,df_kmeans],axis=1)
         print(aux)
 
         print("normalziaed")
@@ -230,9 +241,6 @@ class ClientInfoViewset(viewsets.ModelViewSet):
         aux = aux.sort_values("k_means_label")
         print(aux)
 
-        #print("!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        #grouped_df2= aux.groupby("k_means_label").agg({'Age':'mean'})
-        #print(grouped_df2)
         ageValues = [0,0,0,0]
         familyValues = [0,0,0,0]
         contadores = [0,0,0,0]
