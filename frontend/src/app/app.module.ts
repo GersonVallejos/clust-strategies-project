@@ -39,6 +39,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 // Servicios
 
 import { ApiService } from './servicios/api/api.service';
+import { ShowResultsComponent } from './components/show_results/show-results/show-results.component';
 
  
 
@@ -63,7 +64,8 @@ import { ApiService } from './servicios/api/api.service';
     AddClientInfoComponent,
     ShowDataComponent,
     PagesComponent,
-    EditPerfilComponent
+    EditPerfilComponent,
+    ShowResultsComponent
     
   ],
   imports: [
