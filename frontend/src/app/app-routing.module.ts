@@ -21,6 +21,7 @@ import { AddClientInfoComponent } from './components/add-client-info/add-client-
 import {ShowDataComponent} from './components/show-data/show-data.component';
 import {PagesComponent} from './components/pages/pages.component';
 import{EditPerfilComponent} from './components/edit-perfil/edit-perfil/edit-perfil.component'
+import {ShowResultsComponent} from './components/show_results/show-results/show-results.component'; 
 
 const routes: Routes = [
   {path: '', redirectTo: '/Login',pathMatch: 'full'},
@@ -42,7 +43,8 @@ const routes: Routes = [
     {path: 'EditClientInfo/:id',component: EditClientInfoComponent},
     {path: 'AddClientInfo/:id',component: AddClientInfoComponent},
     {path: 'ShowData/:id', component: ShowDataComponent},
-    {path: 'EditPerfil/:id', component:EditPerfilComponent}
+    {path: 'EditPerfil/:id', component:EditPerfilComponent},
+    {path: 'show_results/:id/:cluster', component: ShowResultsComponent}
   ],}
 
   
