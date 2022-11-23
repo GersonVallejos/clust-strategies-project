@@ -57,7 +57,8 @@ export class ShowDataComponent implements OnInit {
   }
 
   goToPage3(pageName:string,id:number,clust:number):void{
-    console.log(id);
+    //console.log(id);
+    //console.log(this.clientInfo)
     this.router.navigate([`${pageName}`,id,clust]);
   }
 

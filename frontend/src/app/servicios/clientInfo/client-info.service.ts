@@ -46,6 +46,10 @@ export class ClientInfoService {
     .pipe(catchError((e) => throwError(e)));
   }
 
+  useDT(id: number,clust: number){
+    return this.http.get<number>(`${environment.apiUrl}/info/use_dt/?d_id=${id}&cluster=${clust}`)
+    .pipe(catchError((e) => throwError(e)));
+  }
 
   
 }
