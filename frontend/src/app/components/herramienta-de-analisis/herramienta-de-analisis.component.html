@@ -1,65 +1,62 @@
-
-<section class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1>HERRAMIENTA DE ANÁLISIS</h1>
+<div class="p-5">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-12">
+          <h1>HERRAMIENTA DE ANÁLISIS</h1>
+        </div>
       </div>
     </div>
-  </div><!-- /.container-fluid -->
-</section>
-
-
-
-<ul class="datasets">
-</ul>
-<div class="row">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">1. Seleccionar Data</h3>
-        
-
-        
+    <!-- /.container-fluid -->
+  </section>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">1. Seleccionar Data</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th>seleccionar</th>
+                <th>#</th>
+                <th>File name</th>
+                <th>Created</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let data of dataset; index as i">
+              <tr>
+                <td>
+                  <a
+                    (click)="goToPage2('Dashboard/ShowData', data.id)"
+                    class="btn btn-app"
+                  >
+                    Analizar
+                  </a>
+                </td>
+                <td>{{ i + 1 }}</td>
+                <td>{{ data.file_name }}</td>
+                <td>{{ data.created_timestamp }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
       </div>
-      <!-- /.card-header -->
-      <div class="card-body table-responsive p-0" style="height: 300px;">
-        <table class="table table-head-fixed text-nowrap">
-          <thead>
-            <tr>
-              <th>seleccionar</th>
-              <th>#</th>
-              <th>File name</th>
-              <th>Created</th>
-              
-            </tr>
-          </thead>
-          <tbody *ngFor="let data of dataset; index as i">
-            <tr>
-              <td>
-                <a (click)="goToPage2('Dashboard/ShowData',data.id)" class="btn btn-app">
-                  Analizar
-                </a>
-            </td>
-              <td>{{i+1}}</td>
-              <td>{{data.file_name}}</td>
-              <td>{{data.created_timestamp}}</td>
-              
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
-      <!-- /.card-body -->
+      <!-- /.card -->
     </div>
-    <!-- /.card -->
+    <!-- /.row -->
+    <div class="mb-4">
+      <div class="card-title">2. Ejecutar Análisis</div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-block btn-warning"
+      (click)="sendDataset()"
+    >
+      analizar Dataset
+    </button>
   </div>
 </div>
-<!-- /.row -->
-<span>
-  <h3 class="card-title">2. Ejecutar Análisis</h3>
-</span>
-<button type="button" class="btn btn-block btn-warning" (click)="sendDataset()">analizar Dataset</button>
- 
-
-

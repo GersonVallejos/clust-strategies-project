@@ -2,75 +2,67 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
   <!-- Brand Logo -->
   <a class="brand-link">
-    <img src="./assets/dist/img/Clust-Strategies-Logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Clust Strategies</span>
-    
   </a>
-
   <!-- Sidebar -->
   <div class="sidebar">
-    
-
-    
-
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        
+
         <li class="nav-item" (click)="goToPage('Dashboard/Inicio')">
-          <a  class="nav-link">
-            
+          <a class="nav-link">
             <p>
               Inicio
-              <i class="fas fa-angle-down right"></i>
+              <i class="fas fa-home right"></i>
             </p>
           </a>
         </li>
-        
-        
-       
+
         <li class="nav-item" (click)="goToPage('Dashboard/Perfil')">
-          <a  class="nav-link">
-            
+          <a class="nav-link">
             <p>
               Mi Perfil
-              <i class="fas fa-angle-down right"></i>
+              <i class="fas fa-user-alt right"></i>
             </p>
           </a>
         </li>
         <li class="nav-item" (click)="goToPage('Dashboard/GestionDeDatos')">
-          <a  class="nav-link">
-            
+          <a class="nav-link">
             <p>
               Gestión de Datos
-              <i class="fas fa-angle-down right"></i>
+              <i class="fas fa-database right"></i>
             </p>
           </a>
         </li>
         <li class="nav-item" (click)="goToPage('Dashboard/Analisis')">
           <a class="nav-link">
-            
             <p>
               Herramienta de Análisis
-              <i class="fas fa-angle-down right"></i>
+              <i class="fas fa-tools right"></i>
             </p>
           </a>
         </li>
         <li class="nav-item" (click)="goToPage('Dashboard/Ayuda')">
-          <a class="nav-link" >
-            
+          <a class="nav-link">
             <p>
               Ayuda
+              <i class="fas fa-hands-helping right"></i>
             </p>
           </a>
         </li>
-        <li class="nav-item" (click) = "singout()">
+        <li class="nav-item" (click)="singout()">
           <a class="nav-link pos-down">
-            
             <p>
               Cerrar Sesión
+              <i class="fas fa-sign-out-alt right"></i>
             </p>
           </a>
         </li>
@@ -78,6 +70,6 @@
     </nav>
     <!-- /.sidebar-menu -->
   </div>
-  
+
   <!-- /.sidebar -->
 </aside>
